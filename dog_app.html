@@ -11821,8 +11821,10 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
 
 <span class="c1"># load filenames for human and dog images</span>
-<span class="n">human_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;lfw/*/*&quot;</span><span class="p">))</span>
-<span class="n">dog_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;dogImages/*/*/*&quot;</span><span class="p">))</span>
+<span class="c1">#human_files = np.array(glob(&quot;lfw/*/*&quot;))</span>
+<span class="c1">#dog_files = np.array(glob(&quot;dogImages/*/*/*&quot;))</span>
+<span class="n">human_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;/data/lfw/*/*&quot;</span><span class="p">))</span>
+<span class="n">dog_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;/data/dog_images/*/*/*&quot;</span><span class="p">))</span>
 
 <span class="c1"># print number of images in each dataset</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">%d</span><span class="s1"> total human images.&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">human_files</span><span class="p">))</span>
@@ -12507,11 +12509,11 @@ Dogs counted: 95
 
 <span class="c1"># create my datasets using &quot;torchvision.datasets.ImageFolder&quot;</span>
 
-<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/train&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">train_transform</span><span class="p">)</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/train&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">train_transform</span><span class="p">)</span>
 
-<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/test&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/test&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform</span><span class="p">)</span>
 
-<span class="n">valid_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/valid&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform</span><span class="p">)</span>
+<span class="n">valid_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/valid&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform</span><span class="p">)</span>
 
 <span class="c1">#</span>
 <span class="n">trainloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">b_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -12955,11 +12957,11 @@ Test Accuracy: 38% (323/836)
 
 <span class="c1"># create my datasets using &quot;torchvision.datasets.ImageFolder&quot;</span>
 
-<span class="n">train_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/train&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">train_transform_transfer</span><span class="p">)</span>
+<span class="n">train_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/train&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">train_transform_transfer</span><span class="p">)</span>
 
-<span class="n">test_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/test&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform_transfer</span><span class="p">)</span>
+<span class="n">test_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/test&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform_transfer</span><span class="p">)</span>
 
-<span class="n">valid_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;dogImages/valid&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform_transfer</span><span class="p">)</span>
+<span class="n">valid_data_transfer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="s1">&#39;/data/dogImages/valid&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">test_transform_transfer</span><span class="p">)</span>
 
 <span class="c1">#</span>
 <span class="n">trainloader_transfer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data_transfer</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">b_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13702,7 +13704,7 @@ Hello little dog,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">human_files_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;test_images/human/*&quot;</span><span class="p">))</span>
